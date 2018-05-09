@@ -53,6 +53,15 @@ public class Array<E> {
     }
 
     /**
+     * 判断数组是否为空
+     *
+     * @return
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    /**
      * 向尾部添加元素
      *
      * @param e
