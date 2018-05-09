@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'org.dark'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven{
+        url = "http://maven.aliyun.com/nexus/content/groups/public"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.projectlombok:lombok:1.16.20'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    testCompile "junit:junit:4.12"
+}
