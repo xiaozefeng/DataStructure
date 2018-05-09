@@ -167,7 +167,9 @@ public class Array<E> {
         size--;
         data[size] = null;
 
-        if (size == data.length / 2) {
+        // 只有当删除的元素只有原来数组的1/4时，才对数组缩容，避免时间复杂度震荡
+        // data.length / 2 != 0 数组的长度不能等于0
+        if (size == data.length / 4 && data.length / 2 != 0) {
             resize(data.length / 2);
         }
         return ret;
