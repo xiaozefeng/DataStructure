@@ -116,6 +116,24 @@ public class Array<E> {
     }
 
     /**
+     * 获取数组中第一个元素
+     *
+     * @return
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
+     * 获取最后一个元素
+     *
+     * @return
+     */
+    public E getLast() {
+        return this.get(size - 1);
+    }
+
+    /**
      * 设置指定index的值
      *
      * @param index
