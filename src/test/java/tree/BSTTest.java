@@ -14,7 +14,19 @@ public class BSTTest {
         bst.add(20);
         bst.add(18);
         bst.add(23);
-        System.out.println(bst);
+        bst.add(26);
+        System.out.println("----前序遍历-----");
+        bst.preOrder();
+
+        System.out.println("----非递归的前序遍历-----");
+        bst.preOrderNR();
+
+        System.out.println("----中序遍历-----");
+        bst.inOrder();
+        System.out.println("-----后序遍历----");
+        bst.postOrder();
+        System.out.println("---------");
+        //System.out.println(bst);
     }
 
 

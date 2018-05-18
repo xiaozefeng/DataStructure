@@ -1,7 +1,10 @@
 package tree;
 
 import com.sun.corba.se.spi.ior.iiop.IIOPFactories;
+import jdk.nashorn.internal.ir.FunctionCall;
 import jdk.nashorn.internal.objects.NativeUint8Array;
+import stack.ArrayStack;
+import stack.Stack;
 
 import javax.annotation.Resource;
 import javax.management.modelmbean.ModelMBean;
@@ -88,6 +91,8 @@ public class BST<E extends Comparable<E>> {
         return node;
     }
 
+
+
     /**
      * 查询二分搜索树种是否办好元素E
      *
@@ -143,6 +148,62 @@ public class BST<E extends Comparable<E>> {
         preOrder(node.right);
     }
 
+    /**
+     * 前序遍历非递归实现
+     */
+    public void  preOrderNR(){
+        Stack<Node> stack = new ArrayStack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node cur = stack.pop();
+            System.out.println(cur.e);
+            if (cur.right != null) {
+                stack.push(cur.right);
+            }
+            if (cur.left != null) {
+                stack.push(cur.left);
+            }
+        }
+    }
+
+    /**
+    * 中序遍历
+    */
+    public void inOrder() {
+      inOrder(root);
+    }
+
+    /**
+    * 以node为根节点的中序遍历，递归算法
+    */
+    private void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
+    }
+
+    /**
+     * 后序遍历
+     */
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    /**
+    * 以node为根节点做后序遍历
+    */
+    private void postOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.e);
+    }
+
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
@@ -167,7 +228,7 @@ public class BST<E extends Comparable<E>> {
         generateBSTString(node.right, depth + 1, res);
     }
 
-    private String  generateDepthString(int depth) {
+    private String generateDepthString(int depth) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < depth; i++) {
             sb.append("--");
