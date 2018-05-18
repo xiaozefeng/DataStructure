@@ -13,7 +13,10 @@ public class Main {
         Queue<Integer> arrayQueue = new ArrayQueue<>();
         System.out.println("Array Queue 花费了" + testQueue(arrayQueue, opCount) + "秒");
         Queue<Integer> loopQueue = new LoopQueue<>();
-        System.out.println("Loop Queue 花费了" + testQueue(loopQueue, opCount) + "秒");
+        System.out.println("LoopArray Queue 花费了" + testQueue(loopQueue, opCount) + "秒");
+
+        Queue<Integer> linkedListQueue = new LinkedListQueue<>();
+        System.out.println("LinkedList Queue 花费了" + testQueue(linkedListQueue, opCount) + "秒");
     }
 
     public static double testQueue(Queue<Integer> q, int opCount) {
