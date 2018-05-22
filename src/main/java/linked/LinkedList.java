@@ -1,10 +1,5 @@
 package linked;
 
-import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
-
-import javax.annotation.Resource;
-import javax.net.ssl.SNIHostName;
-
 /**
  * 链表
  *
@@ -201,6 +196,26 @@ public class LinkedList<E> {
         delNode.next = null;
         return delNode.e;
     }
+
+    /**
+     * 从链表中删除元素e
+     * @param e
+     */
+    public void removeElement(E e) {
+        Node prev = dummyHead;
+        while (prev.next != null) {
+            if (prev.e.equals(e)) {
+                break;
+            }
+            prev = prev.next;
+        }
+        if (prev.next != null) {
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+        }
+    }
+
 
     /**
      * 删除头部元素
